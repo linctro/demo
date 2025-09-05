@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head prefix="og: https//ogp.me/ns# fb: https//ogp.me/ns/fb# article: https//ogp.me/ns/article#">
+  <meta charset="UTF-8">
+  <meta http-eqive="X-UA-Compatible" content="IE=edge" />
+  
+
+<meta property="og:title" content="【こしきブリュワリー検定】" />
+  <meta property="og:description" content="知るともっと味わいが深まる！こしきブリュワリー検定" />
+  <meta property="og:image" content="https://koshiki-brewery-qize.netlify.app/resources/images/koshibureomgimg.png" />
+  <meta property="og:url" content="https://koshiki-brewery-qize.netlify.app/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="こしきブリュワリー検定" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@vtmapida" />
+  <meta name="twitter:creator" content="@1hayaDSGN" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>こしブリ検定</title>
+  <link rel="stylesheet" href="./resources/styles/destyle.css" />
+  <link rel="stylesheet" href="./resources/styles/style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- PC用サイドバー -->
+    <div class="sidebar">
+      <a href="#" class="sidebar-icon"
+        onclick="openLink('ec')">🛒</a>
+      <a href="#" class="sidebar-icon" onclick="openLink('twitter')">𝕏</a>
+      <a href="#" class="sidebar-icon" onclick="openLink('instagram')">📷</a>
+      <a href="#" class="sidebar-icon" onclick="openLink('homepage')">🏠</a>
+    </div>
+
+    <div class="main-content">
+      <!-- PC用ナビゲーションボタン -->
+      <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="previousSlide()">↑</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">↓</button>
+      </div>
+
+      <div class="quiz-container" id="quizContainer">
+        <!-- 開始画面 -->
+        <div class="slide active" id="slide-start">
+          <div class="header">
+            <div class="question-number">こしきブリュワリー</div>
+            <div style="font-size: 14px; color: #666;" id="levelSubtitle">こしきブリュワリー検定 - 初級編</div>
+          </div>
+          <div class="quiz-content">
+            <div class="icon-content"><img class="beer-icon" src="resources/images/kochiki_b_logo_06_fixol_b.webp"></div>
+            <div class="question" id="levelTitle">こしきブリュワリーのことを<br>もっと知ろう！</div>
+            <div style="text-align: center; color: #666; margin-bottom: 20px;">
+              全10問 / 各10点 / 制限時間なし
+            </div>
+            <button class="confirm-btn active" onclick="startQuiz()">スタート</button>
+          </div>
+        </div>
+
+         <!-- 級選択ボタン -->
+    <div class="level-selector">
+        <button class="level-btn active" onclick="switchLevel('beginner')" id="beginnerBtn">
+            <span>初</span>
+            <span>級</span>
+        </button>
+        <button class="level-btn" onclick="switchLevel('intermediate')" id="intermediateBtn">
+            <span>中</span>
+            <span>級</span>
+        </button>
+        <button class="level-btn" onclick="*switchLevel('advanced')" id="advancedBtn">
+            <span>上</span>
+            <span>級</span>
+        </button>
+    </div>
+        <!-- クイズスライドは動的に生成 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- モバイル用フッター -->
+  <div class="footer">
+    <a href="#" class="footer-icon"
+      onclick="openLink('ec')">🛒</a>
+    <a href="#" class="footer-icon" onclick="openLink('twitter')">𝕏</a>
+    <a href="#" class="footer-icon" onclick="openLink('instagram')">📷</a>
+    <a href="#" class="footer-icon" onclick="openLink('homepage')">🏠</a>
+  </div>
+
+  <!-- 完了ポップアップ -->
+  <div class="completion-popup" id="completionPopup">
+    <div class="popup-content">
+      <div class="badge-image" id="badgeImage">🏆</div>
+      <div class="final-score" id="finalScore">0点</div>
+      <div class="completion-date" id="completionDate"></div>
+      <div style="margin: 20px 0; font-weight: bold; color: #333;">
+        回答完了おめでとうございます！<br>スクショして𝕏で共有しよう！
+      </div>
+      <button class="share-btn" onclick="shareToTwitter()">𝕏で共有</button>
+      <button class="share-btn" style="background: #28a745;" onclick="restartQuiz()"> リトライ</button>
+      <button class="close-btn" onclick="closePopup()">閉じる</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
